@@ -1,0 +1,15 @@
+<template>
+    <div class = "main">
+       <button class="addNote" onclick={createNote}>+</button>
+       <p>Add new note</p>
+    </div>
+
+    <template if:true={isModalOpen}>
+        <div class="mainPopup">
+            <label for="description">Description</label>
+           <textarea></textarea>
+           <button class="add">Add Note</button>
+           <button class="delete" onclick={cancelModal}>Cancel</button>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,32 @@
+<template>
+    <table >
+        <caption>My team</caption>
+        <thead>
+            <tr>   
+             <th scope="col">First Name</th>
+             <th scope="col">Last Name</th>
+             <th scope="col">Email</th>
+             <th scope="col">Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={recordsToDisplay} for:item="columns">
+                <tr key={columns.Id}>
+                
+                    <td data-label="First Name" scope="col">
+                        {columns.FirstName}
+                    </td>
+                    <td data-label="Last Name" scope="col">
+                        {columns.LastName}
+                    </td>
+                    <td data-label="Email" scope="col">
+                        {columns.Email}
+                    </td>
+                    <td data-label="Phone" scope="col">
+                        {columns.Phone}
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+     </table>
+</template>

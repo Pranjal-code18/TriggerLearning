@@ -1,0 +1,56 @@
+<template>
+    <div class="main">
+       
+     <button type="submit"  onclick={editEmployee} class="sendEmail" disabled={btn3}>Request Modification </button>
+     <!-- <c-sent-request-modification subject-val={subject} if:true={showpopUp} oncloseeditemprec={handleChildResponse}></c-sent-request-modification>
+     -->
+ <div if:true={showSpinner}>
+    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+</div>
+<div class="punchIn_PunchOut_Record">
+<div class="punchIrecord">
+ <label for="Punch_In">Last Punch In Time:</label>
+ <input type="datetime" class="PunchInDateTime" value={PunchInDateTime} readonly><br><br>
+ <button  onclick={createAttendanceRecord} disabled={btn1} class="PunchIn">Punch In</button>
+ </div>
+
+ <div class="punchOutRecord">
+ <label for="Punch_Out">Last Punch Out Time:</label>
+ <input type="text" class="PunchOutDateTime" value={PunchOutDateTime} readonly><br><br>
+ <button  onclick={updateAttendanceRecord} disabled={btn2} class="PunchOut">Punch Out</button>
+ </div>
+</div>
+</div >
+
+
+<table >
+    <caption>My Attendance</caption>
+    <thead>
+        <tr>   
+         <!-- <th scope="col">Attendance Date</th> -->
+         <th scope="col">Punch In Time</th>
+         <th scope="col">Punch Out Time</th>
+         <th scope="col">Total Worked Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        <template for:each={recordsToDisplay} for:item="columns">
+            <tr key={columns.Id}>
+            
+                <!-- <td data-label="Date" scope="col">
+                    {columns.CreatedById}
+                </td> -->
+                <td data-label="Punch In Time" scope="col">
+                    {columns.Date_and_Time_IN__c}
+                </td>
+                <td data-label="Punch Out Time" scope="col">
+                    {columns.Date_and_Time_OUT__c}
+                </td>
+                <td data-label="Total Worked Hours" scope="col">
+                    {columns.Total_Worked_Hours__c}
+                </td>
+            </tr>
+        </template>
+    </tbody>
+ </table>
+</template>
